@@ -3,6 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Configure the Streamlit app
+st.set_page_config(page_title="International Spending Insights", layout="wide", initial_sidebar_state="expanded")
+
+# App Title
+st.title("🌍 International Spending Insights")
+st.markdown("""
+Welcome to the **International Spending Insights** app!  
+Analyze your spending across regions, track your expenses, and uncover valuable insights to manage your finances effectively.
+""")
+
 # Example dataset
 data = pd.DataFrame({
     'Category': ['Rent', 'Groceries', 'Utilities', 'Entertainment', 'Transportation'],
@@ -11,7 +21,7 @@ data = pd.DataFrame({
 
 # Sidebar UI
 st.sidebar.header("Select Parameters")
-spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Norway", "Italy"])
+spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Other"])
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
 
 # Filter data (example logic; replace with your actual filtering)
