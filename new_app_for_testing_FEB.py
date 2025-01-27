@@ -26,7 +26,7 @@ chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heat
 
 # Chatbot Prompt Field in Sidebar
 st.sidebar.subheader("Chat with Financial Assistant")
-chat_input = st.sidebar.text_area("Ask a question about your finances:", placeholder="e.g., How can I save more on groceries?")
+chat_input = st.sidebar.text_area("Ask a question about your finances:", placeholder="e.g., What are my Germany spending habits?")
 
 if st.sidebar.button("Get Insights"):
     if chat_input.strip():
@@ -35,10 +35,8 @@ if st.sidebar.button("Get Insights"):
         st.sidebar.write(f"**You asked:** {chat_input}")
         st.sidebar.markdown("""
         **Chatbot Suggestion:**  
-        Based on your question, here are some suggestions:  
-        - Set a weekly spending cap for groceries and track it.  
-        - Look for discount stores or bulk purchases.  
-        - Compare prices online before shopping.  
+        Based on your question, here is a short assessment:  
+        Housing, including rent, utilities, and internet, formed a significant portion of their spending, complemented by groceries from both the commissary and local supermarkets. Dining out included casual meals at local bakeries and restaurants, with occasional splurges on fine dining for special occasions. Transportation costs covered fuel, public transit, and car maintenance. Recreation and travel featured prominently, with visits to local attractions, weekend trips to neighboring countries, and entertainment like concerts and movies. Other expenses included childcare, school supplies, shopping for seasonal needs, healthcare, and occasional donations or gifts. Seasonal spikes in travel and heating expenses during the holidays and winter months are notable, alongside steady savings contributions to retirement accounts.   
         """)
     else:
         st.sidebar.warning("Please type a question to get insights.")
