@@ -1,11 +1,19 @@
-import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
-# Example spending data
-data = {'Category': ['Rent', 'Groceries', 'Entertainment', 'Utilities', 'Transportation'],
-        'Amount': [1800, 850, 300, 200, 100]}
-transactions_df = pd.DataFrame(data)
+# Example dataset
+data = pd.DataFrame({
+    'Category': ['Rent', 'Groceries', 'Utilities', 'Entertainment', 'Transportation'],
+    'Amount': [1800, 845.98, 179.20, 154.67, 62.80]
+})
+
+# Filter data (if applicable)
+filtered_data = data  # Replace this with actual filtering logic
+
+# Ensure filtered_data has the required columns
+if 'Category' in filtered_data.columns and 'Amount' in filtered_data.columns:
+    st.bar_chart(filtered_data.set_index('Category')['Amount'])
+else:
+    st.error("Filtered data does not have the required 'Category' and 'Amount' columns.")
 
 # Sidebar UI
 st.sidebar.header("Select Parameters")
