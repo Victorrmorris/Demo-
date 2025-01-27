@@ -21,7 +21,7 @@ data = pd.DataFrame({
 
 # Sidebar UI
 st.sidebar.header("Navigation and Chatbot")
-spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Other"])
+spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Italy", "Norway"])
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
 
 # Chatbot Prompt Field in Sidebar
