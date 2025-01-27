@@ -25,7 +25,7 @@ spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "O
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
 
 # Chatbot Prompt Field in Sidebar
-st.sidebar.subheader("Chat with Financial Assistant")
+st.sidebar.subheader("Chat with Your Financial Assistant")
 chat_input = st.sidebar.text_area("Ask a question about your finances:", placeholder="e.g., How can I save more on groceries?")
 
 if st.sidebar.button("Get Insights"):
