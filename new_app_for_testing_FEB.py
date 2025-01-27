@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Configure the Streamlit app
-st.set_page_config(page_title="DECC International Spending Insights", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="International Spending Insights", layout="wide", initial_sidebar_state="expanded")
 
 # App Title
 st.title("🌍 International Spending Insights")
@@ -20,9 +20,28 @@ data = pd.DataFrame({
 })
 
 # Sidebar UI
-st.sidebar.header("Select Parameters")
+st.sidebar.header("Navigation and Chatbot")
 spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Other"])
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
+
+# Chatbot Prompt Field in Sidebar
+st.sidebar.subheader("Chat with Financial Assistant")
+chat_input = st.sidebar.text_area("Ask a question about your finances:", placeholder="e.g., How can I save more on groceries?")
+
+if st.sidebar.button("Get Insights"):
+    if chat_input.strip():
+        # Simulated Chatbot Response
+        st.sidebar.write("### Chatbot Response:")
+        st.sidebar.write(f"**You asked:** {chat_input}")
+        st.sidebar.markdown("""
+        **Chatbot Suggestion:**  
+        Based on your question, here are some suggestions:  
+        - Set a weekly spending cap for groceries and track it.  
+        - Look for discount stores or bulk purchases.  
+        - Compare prices online before shopping.  
+        """)
+    else:
+        st.sidebar.warning("Please type a question to get insights.")
 
 # Filter data (example logic; replace with your actual filtering)
 filtered_data = data  # Example static filtering for now
