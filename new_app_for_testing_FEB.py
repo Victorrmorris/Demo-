@@ -13,20 +13,15 @@ Welcome to the **International Spending Insights** app!
 Analyze your spending across regions, track your expenses, and uncover valuable insights to manage your finances effectively.
 """)
 
-# Example datasets for US and Germany
-us_data = pd.DataFrame({
+# Example dataset
+data = pd.DataFrame({
     'Category': ['Rent', 'Groceries', 'Utilities', 'Entertainment', 'Transportation'],
-    'Amount': [1125, 528.74, 111.99, 96.67, 39.25]  # US spending
-})
-
-germany_data = pd.DataFrame({
-    'Category': ['Rent', 'Groceries', 'Utilities', 'Entertainment', 'Transportation'],
-    'Amount': [1800, 845.98, 179.20, 154.67, 62.80]  # Germany spending (60% higher than US)
+    'Amount': [1800, 845.98, 179.20, 154.67, 62.80]
 })
 
 # Sidebar UI
 st.sidebar.header("Navigation and Chatbot")
-spending_region = st.sidebar.selectbox("Spending Region", ["Germany", "US"])
+spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Other"])
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
 
 # Chatbot Prompt Field in Sidebar
@@ -48,19 +43,19 @@ if st.sidebar.button("Get Insights"):
     else:
         st.sidebar.warning("Please type a question to get insights.")
 
-# Select dataset based on region
-filtered_data = germany_data if spending_region == "Germany" else us_data
+# Filter data (example logic; replace with your actual filtering)
+filtered_data = data  # Example static filtering for now
 
 # Display Charts
 if chart_type == "Bar Chart":
-    st.subheader(f"{spending_region} Spending - Bar Chart")
+    st.subheader(f"{spending_category} Spending - Bar Chart")
     if 'Category' in filtered_data.columns and 'Amount' in filtered_data.columns:
         st.bar_chart(filtered_data.set_index('Category')['Amount'])
     else:
         st.error("Filtered data does not have the required 'Category' and 'Amount' columns.")
 
 elif chart_type == "Pie Chart":
-    st.subheader(f"{spending_region} Spending - Pie Chart")
+    st.subheader(f"{spending_category} Spending - Pie Chart")
     if 'Category' in filtered_data.columns and 'Amount' in filtered_data.columns:
         fig, ax = plt.subplots()
         ax.pie(filtered_data['Amount'], labels=filtered_data['Category'], autopct='%1.1f%%')
@@ -69,15 +64,15 @@ elif chart_type == "Pie Chart":
         st.error("Filtered data does not have the required 'Category' and 'Amount' columns.")
 
 elif chart_type == "Heatmap":
-    st.subheader(f"{spending_region} Spending - Heatmap")
-    # Create a week-by-category heatmap example
+    st.subheader(f"{spending_category} Spending - Heatmap")
+    # Example transformation for a heatmap; replace with your actual data logic
     heatmap_data = pd.DataFrame({
         'Week': ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-        'Rent': filtered_data.loc[filtered_data['Category'] == 'Rent', 'Amount'].values[0] * 0.25,
-        'Groceries': filtered_data.loc[filtered_data['Category'] == 'Groceries', 'Amount'].values[0] * 0.25,
-        'Utilities': filtered_data.loc[filtered_data['Category'] == 'Utilities', 'Amount'].values[0] * 0.25,
-        'Entertainment': filtered_data.loc[filtered_data['Category'] == 'Entertainment', 'Amount'].values[0] * 0.25,
-        'Transportation': filtered_data.loc[filtered_data['Category'] == 'Transportation', 'Amount'].values[0] * 0.25
+        'Rent': [450, 460, 470, 480],
+        'Groceries': [200, 180, 220, 210],
+        'Utilities': [50, 55, 60, 65],
+        'Entertainment': [100, 120, 80, 90],
+        'Transportation': [30, 40, 35, 45]
     }).set_index('Week')
 
     fig, ax = plt.subplots(figsize=(8, 4))
