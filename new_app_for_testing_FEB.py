@@ -11,7 +11,7 @@ data = pd.DataFrame({
 
 # Sidebar UI
 st.sidebar.header("Select Parameters")
-spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Other"])
+spending_category = st.sidebar.selectbox("Spending Region", ["Germany", "US", "Norway", "Italy"])
 chart_type = st.sidebar.selectbox("Chart Type", ["Bar Chart", "Pie Chart", "Heatmap"])
 
 # Filter data (example logic; replace with your actual filtering)
