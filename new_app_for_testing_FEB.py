@@ -9,9 +9,6 @@ st.set_page_config(page_title="International Spending Insights", layout="wide", 
 # App Title
 st.title("🌍 International Spending Insights")
 st.markdown("""
-Welcome to the **International Spending Insights** app!  
-Analyze your spending across regions, track your expenses, and uncover valuable insights to manage your finances effectively.
-""")
 
 # Example dataset
 data = pd.DataFrame({
