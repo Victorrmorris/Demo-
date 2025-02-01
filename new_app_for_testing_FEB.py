@@ -8,7 +8,6 @@ st.set_page_config(page_title="International Spending Insights", layout="wide", 
 
 # App Title
 st.title("🌍 International Spending Insights")
-st.markdown("""
 
 # Example dataset
 data = pd.DataFrame({
