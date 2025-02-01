@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Configure the Streamlit app
-st.set_page_config(page_title="International Spending Insights", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="DECC custom visuals and insights", layout="wide", initial_sidebar_state="expanded")
 
 # App Title
-st.title("🌍 International Spending Insights")
+st.title("🌍 Your International Spending Insights")
 
 # Example dataset
 data = pd.DataFrame({
